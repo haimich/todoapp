@@ -5,35 +5,47 @@
         <title>Echobot Todos</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <header><img src="logo.jpg"> todos</header>
+        
+        <div class="wrapper">
+            <div class="content">
+                
+                <header><img class="todo-logo" src="logo.jpg"> todos</header>
 
-        <main>
-            <form>
-                <input type="text" class="todo-editor-input" name="todo-editor-input" placeholder="What needs to be done?">
+                <main>
+                    <div class="todo-editor">
+                        <form>
+                            <input type="text" class="todo-editor-input" name="todo-editor-input" placeholder="What needs to be done?">
 
-                <ul>
-                    <li>
-                        <input type="checkbox">
-                        <input type="text" value="A todo">
-                        <span class="todo-editor-delete">X</span>
-                    </li>
-                </ul>
-            </form>
+                            <ul>
+                                <li>
+                                    <input type="checkbox">
+                                    <input type="text" value="A todo">
+                                    <button>X</button>
+                                </li>
+                            </ul>
+                        </form>
 
-            <section class="todo-filterbar">
-                <span class="todo-filterbar-infos">1 item left</span>
-                <span class="todo-filterbar-actions">
-                    <form>
-                        <button>All</button>
-                        <button>Active</button>
-                        <button>Completed</button>
-                    </form>
-                </span>
-            </section>
-        </main>
+                        <section class="todo-filterbar">
+                            <span class="todo-filterbar-infos">1 item left</span>
+                            <span class="todo-filterbar-actions">
+                                <form>
+                                    <button>All</button>
+                                    <button>Active</button>
+                                    <button>Completed</button>
+                                </form>
+                            </span>
+                        </section>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
     </body>
 
 </html>
