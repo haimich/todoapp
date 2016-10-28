@@ -17,10 +17,17 @@
                 <header><img class="todo-logo" src="logo.jpg"> todos</header>
 
                 <main>
-                    <div class="todo-editor">
+                    <section class="todo-editor">
                         <form>
+                            <span class="todo-editor-checkbox">
+                                <input type="checkbox" style="width: 60px; height: 34px;">
+                            </span>
                             <input type="text" class="todo-editor-input" name="todo-editor-input" placeholder="What needs to be done?">
+                        </form>
+                    </section>
 
+                    <section class="todo-items">
+                        <form>
                             <ul>
                                 <li>
                                     <input type="checkbox">
@@ -29,18 +36,18 @@
                                 </li>
                             </ul>
                         </form>
+                    </section>
 
-                        <section class="todo-filterbar">
-                            <span class="todo-filterbar-infos">1 item left</span>
-                            <span class="todo-filterbar-actions">
-                                <form>
-                                    <button>All</button>
-                                    <button>Active</button>
-                                    <button>Completed</button>
-                                </form>
-                            </span>
-                        </section>
-                    </div>
+                    <section class="todo-filterbar">
+                        <span class="todo-filterbar-infos">1 item left</span>
+                        <span class="todo-filterbar-actions">
+                            <form>
+                                <button>All</button>
+                                <button>Active</button>
+                                <button>Completed</button>
+                            </form>
+                        </span>
+                    </section>
                 </main>
 
             </div>
