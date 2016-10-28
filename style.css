@@ -39,6 +39,12 @@ header {
   max-width: 200px;
 }
 
+@media (min-width: 30rem) and (max-width: 60rem) {
+  .todo-logo {
+    display: none;
+  }
+}
+
 main {
   min-width: 12rem;
   display: flex;
@@ -93,11 +99,22 @@ section.todo-items label {
   margin-left: 1.7rem;
 }
 
+@media (max-width: 60rem) {
+  section.todo-filterbar {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 60rem) {
+  section.todo-filterbar {
+    flex-direction: row;
+  }
+}
+
 section.todo-filterbar {
   padding: 0.3rem;
   border: 1px solid #CCC;
   font-size: .6rem;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
