@@ -11,6 +11,11 @@
       "email": "haimich@gmx.net"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "todoapp\\": "."
+    }
+  },
   "require": {
     "klein/klein": "^2.1"
   }
