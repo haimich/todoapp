@@ -8,8 +8,8 @@ use \todoapp\models\Todo;
 $router = new \Klein\Klein();
 
 /* GET List of all todos */
-$router->respond('GET', '/todos/', function ($request, $response) {
-  error_log("GET todos");
+$router->respond('GET', '/todos', function ($request, $response) {
+  error_log('GET todos');
 
   $repo = new TodosRepository();
   $todos = $repo->getTodos();
@@ -19,7 +19,7 @@ $router->respond('GET', '/todos/', function ($request, $response) {
 
 /* POST a todo */
 $router->respond('POST', '/todos/', function ($request, $response) {
-  error_log("POST todo");
+  error_log('POST todo');
 
   $todo = json_decode($request->body());
   $repo = new TodosRepository();

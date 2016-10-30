@@ -18,7 +18,7 @@ angular.module('myApp.view', ['ngRoute'])
   }
 
   this.initialize = function() {
-    $http.get('/todos/')
+    $http.get('/todos')
       .then(function(todos) {
         console.log(todos)
       })

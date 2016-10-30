@@ -2,10 +2,12 @@
 
 class Todo {
   public $name;
+  public $isDone;
   public $id;
 
-  function __construct(string $name, $id = null) {
+  function __construct(string $name, bool $isDone = false, $id = null) {
     $this->name = $name;
+    $this->isDone = $isDone;
     $this->id = $id;
   }
 }
