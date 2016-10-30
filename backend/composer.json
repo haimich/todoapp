@@ -1,0 +1,12 @@
+{
+    "name": "todoapp/backend",
+    "description": "A simple backend for a todo application.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Michael Müller",
+            "email": "haimich@gmx.net"
+        }
+    ],
+    "require": {}
+}
