@@ -7,7 +7,6 @@ use \todoapp\models\Todo;
 
 $router = new \Klein\Klein();
 
-/* GET List of all todos */
 $router->respond('GET', '/todos', function ($request, $response) {
   error_log('GET todos');
 
@@ -17,7 +16,6 @@ $router->respond('GET', '/todos', function ($request, $response) {
   $response->json($todos);
 });
 
-/* POST a todo */
 $router->respond('POST', '/todos/', function ($request, $response) {
   error_log('POST todo');
 
@@ -29,6 +27,21 @@ $router->respond('POST', '/todos/', function ($request, $response) {
     $response->code(201);
   } catch (\Exception $e) {
     error_log('Could not create todo: ' . $e->getMessage());
+    $response->code(500);
+  }
+});
+
+$router->respond('DELETE', '/todos/[:id]', function ($request, $response) {
+  $todoId = $request->param('id');
+  error_log('DELETE todo ' . $todoId);
+
+  $repo = new TodosRepository();
+
+  try {
+    $repo->deleteTodo($todoId);
+    $response->code(200);
+  } catch (\Exception $e) {
+    error_log('Could not delete todo: ' . $e->getMessage());
     $response->code(500);
   }
 });

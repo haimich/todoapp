@@ -10,14 +10,21 @@ angular.module('myApp.view', ['ngRoute'])
 }])
 
 .controller('TodoController', [ '$http', function($http) {
+  var self = this
 
   this.todos = []
   
   this.deleteTodo = function(id) {
-    console.log('delete id ', id);
+    $http.delete('/todos/' + id)
+      .then(function() {
+        console.log('Deleted todo ' + id)
+        self.initialize()
+      })
+      .catch(function(err) {
+        console.error(err)
+      })
   }
 
-  var self = this
   this.initialize = function() {
     $http.get('/todos')
       .then(function(todos) {

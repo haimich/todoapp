@@ -58,6 +58,20 @@ class TodosRepository {
     return;
   }
 
+  function deleteTodo($todoId) {
+    error_log('delete todo: ' . $todoId);
+
+    $sql = "delete from todos where id = $todoId";
+    
+    $result = mysqli_query($this->db, $sql);
+
+    if (!$result) {
+      throw new \Exception('Got no result from db');
+    }
+
+    return;
+  }
+
 }
 
 ?>
