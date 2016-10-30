@@ -1,12 +1,17 @@
 {
-    "name": "todoapp/backend",
-    "description": "A simple backend for a todo application.",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Michael Müller",
-            "email": "haimich@gmx.net"
-        }
-    ],
-    "require": {}
+  "name": "todoapp/backend",
+  "description": "A simple backend for a todo application.",
+  "type": "project",
+  "scripts": {
+    "start": "php -S localhost:3030"
+  },
+  "authors": [
+    {
+      "name": "Michael Müller",
+      "email": "haimich@gmx.net"
+    }
+  ],
+  "require": {
+    "klein/klein": "^2.1"
+  }
 }
