@@ -115,10 +115,14 @@ section.todo-items label {
   }
 }
 
-section.todo-filterbar {
+.todo-filterbar {
   padding: 0.3rem;
   border: 1px solid #CCC;
   font-size: .6rem;
   display: flex;
   justify-content: space-between;
+}
+
+.isDone {
+  text-decoration: line-through;
 }

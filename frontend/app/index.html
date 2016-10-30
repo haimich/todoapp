@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp" class="no-js">
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8">
   <title>My AngularJS App</title>
@@ -14,14 +14,15 @@
 </head>
 <body>
 
-  <div ng-view></div>
+  <div ng-view>Loading...</div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
+  <script src="view/view.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+
 </body>
 </html>
