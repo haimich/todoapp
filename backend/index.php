@@ -10,7 +10,11 @@ $klein = new \Klein\Klein();
 /* GET List of all todos */
 $klein->respond('GET', '/todos/', function ($request, $response) {
   error_log("GET todos");
-  $response->json(json_decode('[ { "id": 1, "name": "Buy milk" }, { "id": 2, "name": "Learn php 7" } ]'));
+
+  $repo = new TodosRepository();
+  $todos = $repo->getTodos();
+
+  $response->json($todos);
 });
 
 /* POST a todo */
