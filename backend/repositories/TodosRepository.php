@@ -1,5 +1,7 @@
 <?php namespace todoapp\repositories;
 
+use \todoapp\models\Todo;
+
 class TodosRepository {
 
   static $DB_HOST = '127.0.0.1';
@@ -16,6 +18,22 @@ class TodosRepository {
       TodosRepository::$DB_PW,
       TodosRepository::$DB_DATABASE
     );
+
+    mysqli_set_charset($this->db, 'utf8');
+  }
+
+  function createTodo(Todo $todo) {
+    error_log('create todo: ' . $todo->name);
+
+    $sql = "insert into todos (name) values ('$todo->name')";
+    
+    $result = mysqli_query($this->db, $sql);
+
+    if (!$result) {
+      throw new \Exception('Got no result from db');
+    }
+
+    var_dump($result);
   }
 
 }

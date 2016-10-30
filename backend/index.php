@@ -3,6 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use \todoapp\repositories\TodosRepository;
+use \todoapp\models\Todo;
 
 $klein = new \Klein\Klein();
 
@@ -16,11 +17,16 @@ $klein->respond('GET', '/todos/', function ($request, $response) {
 $klein->respond('POST', '/todos/', function ($request, $response) {
   error_log("POST todo");
 
-  $todo = $request->body();
-
+  $todo = json_decode($request->body());
   $repo = new TodosRepository();
-  
-  // $response->code(201);
+
+  try {
+    $repo->createTodo(new Todo($todo->name));
+    $response->code(201);
+  } catch (\Exception $e) {
+    error_log('Could not create todo: ' . $e->getMessage());
+    $response->code(500);
+  }
 });
 
 $klein->dispatch();
