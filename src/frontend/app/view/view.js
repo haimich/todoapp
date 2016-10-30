@@ -25,6 +25,21 @@ angular.module('myApp.view', ['ngRoute'])
       })
   }
 
+  this.handleEditorKeypressed = function(event) {
+    if (event.key === 'Enter') {
+      var value = angular.element(document.querySelector('#todo-editor-input'))[0].value
+
+      $http.post('/todos', { name: value })
+        .then(function(result) {
+          console.log('Created todo')
+          self.initialize()
+        })
+        .catch(function(err) {
+          console.error(err)
+        })
+    }
+  }
+
   this.initialize = function() {
     $http.get('/todos')
       .then(function(todos) {

@@ -3,7 +3,7 @@ exports.up = (knex, Promise) => {
   return knex.schema.createTable('todos', (table) => {
     table.bigIncrements('id').primary().unsigned()
     table.string('name')
-    table.boolean('isDone')
+    table.boolean('isDone').defaultTo(false)
 
     table.index('name')
   })

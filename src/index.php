@@ -16,14 +16,14 @@ $router->respond('GET', '/todos', function ($request, $response) {
   $response->json($todos);
 });
 
-$router->respond('POST', '/todos/', function ($request, $response) {
+$router->respond('POST', '/todos', function ($request, $response) {
   error_log('POST todo');
 
   $todo = json_decode($request->body());
   $repo = new TodosRepository();
 
   try {
-    $repo->createTodo(new Todo($todo->name, $todo->isDone));
+    $repo->createTodo(new Todo($todo->name));
     $response->code(201);
   } catch (\Exception $e) {
     error_log('Could not create todo: ' . $e->getMessage());
