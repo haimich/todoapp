@@ -4,7 +4,7 @@ angular.module('myApp.view', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view', {
-    templateUrl: 'view/view.html',
+    templateUrl: '/frontend/app/view/view.html',
     controller: 'TodoController'
   })
 }])
@@ -17,10 +17,12 @@ angular.module('myApp.view', ['ngRoute'])
     console.log('delete id ', id);
   }
 
+  var self = this
   this.initialize = function() {
     $http.get('/todos')
       .then(function(todos) {
-        console.log(todos)
+        console.log(todos);
+        self.todos = todos.data
       })
       .catch(function(err) {
         console.error(err)
@@ -28,21 +30,11 @@ angular.module('myApp.view', ['ngRoute'])
   }
 
   this.initialize()
-
-  // this.todos = [{
-  //   id: 1,
-  //   name: 'Todo 1',
-  //   isDone: true
-  // }, {
-  //   id: 2,
-  //   name: 'Todo 2',
-  //   isDone: false
-  // }];
 }])
 
 .directive('filterBar', function() {
   return {
     restrict: 'E', // Element
-    templateUrl: 'directives/filterBar.html'
+    templateUrl: '/frontend/app/directives/filterBar.html'
   }
 })

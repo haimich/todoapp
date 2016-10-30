@@ -1,7 +1,7 @@
 <div class="wrapper" ng-controller="TodoController as controller">
     <div class="content">
 
-        <header><img class="todo-logo" src="view/logo.png">&nbsp;todos</header>
+        <header><img class="todo-logo" src="/frontend/app/view/logo.png">&nbsp;todos</header>
 
         <main>
             <section class="todo-editor">
@@ -18,7 +18,7 @@
                     <ul ng-repeat="todo in controller.todos">
                         <li>
                             <input type="checkbox" ng-model="todo.isDone">
-                            <label ng-class="{ isDone: todo.id === 1 }">{{ todo.name }}</label>
+                            <label ng-class="{ isDone: todo.isDone }">{{ todo.name }}</label>
                             <button ng-click="controller.deleteTodo(todo.id)">X</button>
                         </li>
                     </ul>

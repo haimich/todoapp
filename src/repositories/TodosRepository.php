@@ -47,7 +47,7 @@ class TodosRepository {
   function createTodo(Todo $todo) {
     error_log('create todo: ' . $todo->name);
 
-    $sql = "insert into todos (name) values ('$todo->name')";
+    $sql = "insert into todos (name, isDone) values ('$todo->name', $todo->isDone)";
     
     $result = mysqli_query($this->db, $sql);
 

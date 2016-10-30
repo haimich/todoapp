@@ -25,7 +25,7 @@ $router->respond('POST', '/todos/', function ($request, $response) {
   $repo = new TodosRepository();
 
   try {
-    $repo->createTodo(new Todo($todo->name));
+    $repo->createTodo(new Todo($todo->name, $todo->isDone));
     $response->code(201);
   } catch (\Exception $e) {
     error_log('Could not create todo: ' . $e->getMessage());
