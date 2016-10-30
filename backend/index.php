@@ -5,10 +5,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 use \todoapp\repositories\TodosRepository;
 use \todoapp\models\Todo;
 
-$klein = new \Klein\Klein();
+$router = new \Klein\Klein();
 
 /* GET List of all todos */
-$klein->respond('GET', '/todos/', function ($request, $response) {
+$router->respond('GET', '/todos/', function ($request, $response) {
   error_log("GET todos");
 
   $repo = new TodosRepository();
@@ -18,7 +18,7 @@ $klein->respond('GET', '/todos/', function ($request, $response) {
 });
 
 /* POST a todo */
-$klein->respond('POST', '/todos/', function ($request, $response) {
+$router->respond('POST', '/todos/', function ($request, $response) {
   error_log("POST todo");
 
   $todo = json_decode($request->body());
@@ -33,6 +33,6 @@ $klein->respond('POST', '/todos/', function ($request, $response) {
   }
 });
 
-$klein->dispatch();
+$router->dispatch();
 
 ?>
